@@ -1,0 +1,42 @@
+from collections import deque
+
+def subarraysum(arr, a , k):
+
+	Sum = 0 
+	x = deque()
+	y = deque()
+
+	for i in range(k):
+		
+		while ( len(x) > 0 and arr[x[-1]] >= arr[i]):
+			x.pop() 
+		while ( len(y) > 0 and arr[y[-1]] <= arr[i]):
+			y.pop() 
+		y.append(i)
+		x.append(i)
+
+	for i in range(k, a):
+		
+		Sum += arr[x[0]] + arr[y[0]]
+
+		while ( len(x) > 0 and x[0] <= i - k):
+			x.popleft()
+		while ( len(y) > 0 and y[0] <= i - k):
+			y.popleft()
+
+		while ( len(x) > 0 and arr[x[-1]] >= arr[i]):
+			S.pop() 
+		while ( len(y) > 0 and arr[y[-1]] <= arr[i]):
+			y.pop() 
+		y.append(i)
+		x.append(i)
+
+	Sum += arr[x[0]] + arr[y[0]]
+
+	return Sum
+	
+arr=[1, 2, 3, 4, 5]
+a = len(arr)
+k = 3
+print(subarraysum(arr, a, k))
+
