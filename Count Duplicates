@@ -1,0 +1,7 @@
+MyList = input("Enter your value: ")
+res = {}
+
+for i in MyList:
+    res[i] = MyList.count(i)
+    
+print(res)
