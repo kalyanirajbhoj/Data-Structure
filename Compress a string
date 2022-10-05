@@ -1,0 +1,27 @@
+#include<iostream>
+#include <string>
+using namespace std;
+ 
+void compress(string s)
+{
+    int num = s.length(); 
+    int i=0; 
+    while ( i < num) 
+    {
+        int repetition = 1;
+        while (s[i] == s[i+1] && i < num-1 ) 
+        {
+            repetition++;
+            i++;
+        }
+        cout << s[i] << repetition;
+        i++;
+    }
+}
+int main()
+{
+    string str;
+    cout<<"Enter string: ";
+    cin>>str;
+    compress(str);
+}
